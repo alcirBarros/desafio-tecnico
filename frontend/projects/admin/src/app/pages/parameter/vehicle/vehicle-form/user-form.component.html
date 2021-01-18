@@ -1,0 +1,35 @@
+<div style="margin-bottom: 20px;">
+    <span>Parâmetros > Usuários > Incluir</span>
+</div>
+
+<app-form [formGroup]="formGroup">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Incluir Usuário</h3>
+        </div>
+
+        <div style="padding: 0px 10px 10px 10px; display: grid; grid-row-gap: 20px;">
+            <div>
+                <span>* Campos Obrigatorios</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 20px;">
+                <app-input-text formControlName="veiculo" label="Veiculo*" requiredMessage="Informe o Veiculo" maxlength="255"></app-input-text>
+                <app-combobox formControlName="marca" label="Marca" [options]="vehicleBrandArray" [showField]="false" requiredMessage="Informe a Marca"></app-combobox>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 0.8fr 0.8fr 0.8fr; grid-column-gap: 20px;">
+                <app-input-text formControlName="ano" label="Ano*" requiredMessage="Informe o Ano" maxlength="11"></app-input-text>
+                <app-input-text formControlName="descricao" label="Descrição" requiredMessage="Informe a Descrição" maxlength="11"></app-input-text>
+                <app-combobox formControlName="vendido" label="Vendido" [options]="soldVehicleArray"  [showField]="false" requiredMessage="Informe o Vendido"></app-combobox>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: right;">
+        <app-button (onClick)="voltarButtunOnClick()" style="max-width: 140px; margin-right: 5px;">
+            <i class="fa fa-arrow-left"></i> Voltar
+        </app-button>
+        <app-button (onClick)="salvarButtunOnClick()" style="max-width: 140px;">
+            <i class="fa fa-save"></i> Salvar
+        </app-button>
+    </div>
+</app-form>

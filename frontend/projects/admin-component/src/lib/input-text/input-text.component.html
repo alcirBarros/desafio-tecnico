@@ -1,0 +1,8 @@
+<span>{{label}}:</span>
+<input [id]="id" [(ngModel)]="value" [type]="type" [maxlength]="maxlength" [placeholder]="placeholder" [readonly]="inputReadonly" [required]="inputRequired" (blur)="onBlur.next()" (focus)="onFocus.next()" [ngClass]="ngClass" class="form-control" [ngClass]="{ 'is-invalid': message && formControl.errors }"
+    autocomplete="off" />
+<div *ngIf="message && formControl.errors" class="invalid-feedback">
+    <div *ngIf="formControl.errors.required">{{requiredMessage}}</div>
+    <div *ngIf="formControl.errors.minlength">{{getMinlengthMessage()}}</div>
+    <div *ngIf="formControl.errors.email">E-mail is required</div>
+</div>

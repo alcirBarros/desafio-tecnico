@@ -1,0 +1,8 @@
+.invalid-feedback {
+    color: #dc3545;
+}
+
+.is-invalid::placeholder {
+    border-color: #dc3545;
+    color: #dc3545;
+}

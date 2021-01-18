@@ -1,0 +1,71 @@
+<div style="margin-bottom: 20px;">
+    <span>Parâmetros > Usuários</span>
+</div>
+<app-form [formGroup]="formGroup">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Lista de Usuários</h3>
+        </div>
+
+        <div style="padding: 10px; display: grid; grid-row-gap: 45px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-column-gap: 20px;">
+                <app-input-text formControlName="descricao" label="Descrição"></app-input-text>
+                <app-combobox formControlName="vehicleBrand" label="Marca" [options]="vehicleBrandArray" [showField]="false"></app-combobox>
+                <app-combobox formControlName="situacao" label="Vendido" [options]="soldVehicleArray" [showField]="false"></app-combobox>
+            </div>
+            <div style="text-align: right;">
+                <app-button (onClick)="searcheButtunOnClick()" style="max-width: 140px;">
+                    <i class="fa fa-search"></i> Pesquisar
+                </app-button>
+            </div>
+        </div>
+    </div>
+</app-form>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr;">
+    <app-button (onClick)="incluirButtunOnClick()" style="max-width: 140px;">
+        <i class="fa fa-plus-square"></i> Incluir
+    </app-button>
+
+    <div style="text-align: right;">
+        <select #selectMenu [ngModel]="pageSize" (change)="onChangepageSize(selectMenu.value)" class="custom-select" style="width: 200px">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+        </select>
+    </div>
+</div>
+
+<table class="table table-bordered table-hover dataTable" style="background: white; margin-top: 20px;">
+    <thead>
+        <tr class="thead-primary">
+            <th scope="col">Veiculo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarioArray; let i = index;">
+            <td>{{ usuario.veiculo }}</td>
+            <td>{{ usuario.marca }}</td>
+            <td>{{ usuario.ano}}</td>
+            <td>{{ usuario.descricao}}</td>
+
+            <td>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 20px;">
+                    <button mat-icon-button (click)="editarButtunOnClick(usuario)">
+                            <i class="fa fa-pencil"></i>
+                    </button>
+                    <button class="delete-button" mat-icon-button (click)="deleteButtunOnClick(usuario)">
+                            <i class="fa fa-trash-o"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<app-pagination [page]="page" (paginationEvent)=changePage($event)>
+</app-pagination>

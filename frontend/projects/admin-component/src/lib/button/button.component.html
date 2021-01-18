@@ -1,0 +1,10 @@
+<button (click)="click($event)" type="submit" [disabled]="submitted || disabled" class="btn btn-primary" [style]="style">
+  <ng-container *ngIf="!submitted; else processingTpl">
+    <ng-content></ng-content>
+  </ng-container>
+
+  <ng-template #processingTpl  >
+    <i class="fa fa-spinner fa-spin"></i>
+    <span> {{processingLabel}}</span>
+  </ng-template>
+</button>

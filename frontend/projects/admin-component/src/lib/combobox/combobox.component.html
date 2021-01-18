@@ -1,0 +1,10 @@
+<span>{{label}}:</span>
+<select [ngModel]="value" class="form-control" #t (change)="changeValue(t.value);setValue(t.value)" [ngClass]="{ 'is-invalid': message && formControl.errors }">
+  <option ></option>
+  <option *ngFor="let i of options" value="{{i.value}}">
+    {{i.display}}
+  </option>
+</select>
+<div *ngIf="message && formControl.errors" class="invalid-feedback">
+    <div *ngIf="formControl.errors.required">{{requiredMessage}}</div>
+</div>
