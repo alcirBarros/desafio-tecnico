@@ -57,7 +57,7 @@ public class VeiculoController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    @RequestMapping(value = "{id}", method = {RequestMethod.DELETE})
+    @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE})
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         return veiculoService.findById(id).map((Veiculo record) -> {
             veiculoService.deleteById(record.getId());
