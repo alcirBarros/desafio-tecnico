@@ -13,6 +13,7 @@ NodeJS 14.15.1 ou Superior
 - Digite `npm start` para startar o servidor, que utilizara a porta 4200
 Acesso no Browser `http://localhost:4200/`
 
+---
 Imagem pra aplicação em execução.
 
 ![01](https://github.com/alcirBarros/desafio-tecnico/blob/master/screenshot/backend01.png)
