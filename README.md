@@ -1,6 +1,7 @@
 # Desafio Técnico
 
 Dependencias de Sistema
+
 Java 8 ou Superior instalado
 Maven 3
 NodeJS 14.15.1 ou Superior
