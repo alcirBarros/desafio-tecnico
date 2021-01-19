@@ -2,9 +2,9 @@
 
 Dependencias de Sistema
 
-Java 8 ou Superior instalado
-Maven 3
-NodeJS 14.15.1 ou Superior
+Java 8 ou Superior instalado.
+Maven 3.
+NodeJS 14.15.1 ou Superior.
 
 ### Instalando backend:
 - Digite `mvn spring-boot:run` para startar o servidor, que utilizara a porta 8080
